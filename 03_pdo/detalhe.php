@@ -44,7 +44,7 @@ $pagina_atual  = "catalogo";
                 <h1 style="color: #3b579d; margin: 0 0 8px; font-size: 24px;">
                     <?php echo htmlspecialchars($tec['nome']); ?>
                 </h1>
-                <span style="background: #e8edf5; color: #3b579d; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; white-space: nowrap;">
+                <span style="background: #f0a039; color: #3b579d; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; white-space: nowrap;">
                     <?php echo htmlspecialchars($tec['categoria']); ?>
                 </span>
             </div>
@@ -54,21 +54,21 @@ $pagina_atual  = "catalogo";
             </p>
 
             <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px;">
-                <tr style="background: #f3f4f6;">
-                    <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: bold; width: 160px;">ID</td>
-                    <td style="padding: 10px; border: 1px solid #e5e7eb;">
+                <tr style="background: #f0a039;">
+                    <td style="padding: 10px; border: 1px solid #f0a039; font-weight: bold; width: 160px;">ID</td>
+                    <td style="padding: 10px; border: 1px solid #f0a039;">
                         <?php echo $tec['id']; ?>
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: bold;">Ano de criação</td>
-                    <td style="padding: 10px; border: 1px solid #e5e7eb;">
+                    <td style="padding: 10px; border: 1px solid #f0a039; font-weight: bold;">Ano de criação</td>
+                    <td style="padding: 10px; border: 1px solid #f0a039;">
                         <?php echo $tec['ano_criacao']; ?>
                     </td>
                 </tr>
-                <tr style="background: #f3f4f6;">
-                    <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: bold;">Cadastrado em</td>
-                    <td style="padding: 10px; border: 1px solid #e5e7eb;">
+                <tr style="background: #f0a039;">
+                    <td style="padding: 10px; border: 1px solid #f0a039; font-weight: bold;">Cadastrado em</td>
+                    <td style="padding: 10px; border: 1px solid #f0a039;">
                         <?php echo date('d/m/Y \à\s H:i', strtotime($tec['criado_em'])); ?>
                     </td>
                 </tr>
