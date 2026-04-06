@@ -55,7 +55,19 @@ function menu_class($item, $atual) {
 </a>
 
 <a href="<?php echo $caminho_raiz; ?>03_pdo/index.php"
-    <?php echo menu_class("contato", $pagina_atual); ?>>
+    <?php echo menu_class("catalogo", $pagina_atual); ?>>
     🗄️Catalogo
+</a>
+<a href="<?php echo $caminho_raiz; ?>04_sessoes/login.php"
+    <?php echo menu_class("login", $pagina_atual); ?>>
+    🔐Login
+</a>
+<a href="<?php echo $caminho_raiz; ?>05_crud/cadastrar.php"
+    <?php echo menu_class("cadastrar", $pagina_atual); ?>>
+    ✒️cadastrar
+</a>
+<a href="<?php echo $caminho_raiz; ?>05_crud/index.php"
+    <?php echo menu_class("lisda de projetos", $pagina_atual); ?>>
+    🧾listagem
 </a>
 </nav>

@@ -191,3 +191,11 @@ footer {
   font-size: 14px;
   border-top: 2px solid #ff870044;
 }
+.bemVindo{
+ text-align: center;
+  background: #0f2916;
+  border-left: 4px solid #36d46f;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin-top: 20px;
+}

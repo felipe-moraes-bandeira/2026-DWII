@@ -82,7 +82,7 @@ $pagina_atual  = '';
         </form>
 
         <p  
-            <a href="../index.php" >
+            <a href="../03_pdo/index.php" >
                 voltar ao inicio
             </a>
         </p>

@@ -25,6 +25,13 @@ $projetos = $stmt->fetchAll();
 
 $cadastroOk = isset($_GET['cadastro']) && $_GET['cadastro'] === 'ok';
 
+$editadoOk = isset($_GET['editado']) && $_GET['editado'] === 'ok';
+
+$excluidoOk = isset($_GET['excluido']) && $_GET['excluido'] === 'ok';
+
+$erroMsg  = isset($_GET['erro']) ? $_GET['erro'] : '';
+
+
 $titulo_pagina = 'Meus Projetos — Portfólio';
 $caminho_raiz = '../';
 $pagina_atual = '';
@@ -83,6 +90,13 @@ $pagina_atual = '';
                        rel="noopener noreferrer"
                        class="btn-secundario">🔗 Ver no GitHub</a>
                 <?php endif; ?>
+
+                <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+                    <a href="editar.php?id=<?php echo (int) $projeto['id']; ?>" 
+                    class="btn-secundairo">🖋️ editar</a>
+                    <a href="excluir.php?id=<?php echo (int) $projeto['id']; ?>"
+                    class="btn-perigo">🗑️ Excluir</a> 
+                </div>
             </div>
         <?php endforeach; ?>
     </div>

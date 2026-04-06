@@ -25,8 +25,11 @@ $pagina_atual  = '';
     <?php require_once __DIR__  . '/../includes/cabecalho.php';?>
 </head>
 <body>
-    
+    <div class="bemVindo">
+<h3>Seja bem vindo  <?php echo htmlspecialchars($_SESSION['usuario']) ?></h3>
+</div>
 <div class="container">
+
 
 <div class="alerta-sucesso">
     <h3>✅ Voce esta autenticado!</h3>
