@@ -1,0 +1,412 @@
+/* ════════════════════════════════════════════════════════════
+ * ARQUIVO    : includes/style.css
+ * Tema       : McLaren Turbo UI
+ * Disciplina : Desenvolvimento Web II
+ * ════════════════════════════════════════════════════════════ */
+
+/* ── Reset ───────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0a0a0a;
+  color: #e5e5e5;
+  line-height: 1.7;
+}
+
+/* ── Layout ─────────────────────────────────── */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ── Títulos ────────────────────────────────── */
+h1.titulo-secao {
+  color: #ff8700;
+  margin-bottom: 25px;
+  text-shadow: 0 0 10px #ff8700;
+}
+
+/* ── NAVBAR McLaren ─────────────────────────── */
+nav {
+  background: #111;
+  padding: 16px 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 2px solid #ff8700;
+  box-shadow: 0 0 10px #ff870055;
+}
+
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 6px 10px;
+  transition: 0.25s;
+}
+
+nav a:hover {
+  color: #ff8700;
+  text-shadow: 0 0 6px #ff8700;
+}
+
+/* Página atual */
+nav a.ativo {
+  color: #ff8700;
+  border-bottom: 2px solid #ff8700;
+}
+
+/* ── Cards ─────────────────────────────────── */
+.card {
+  background: #151515;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 4px solid #ff8700;
+  box-shadow: 0 0 15px #ff870022;
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px #ff870066;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #ff8700;
+  margin-bottom: 12px;
+}
+
+.card p {
+  margin-bottom: 0;
+  color: #cfcfcf;
+}
+
+/* ── Formulários ───────────────────────────── */
+.form-container {
+  background: #151515;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #000;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  margin-top: 16px;
+  color: #ffbb66;
+}
+
+label:first-of-type {
+  margin-top: 0;
+}
+
+/* Campos */
+input[type="text"],
+input[type="url"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #0f0f0f;
+  color: #eee;
+  transition: 0.25s;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: #ff8700;
+  outline: none;
+  box-shadow: 0 0 10px #ff870088;
+}
+
+/* ── Botões (Primário, Secundário e Perigo) ── */
+button[type="submit"],
+.btn-primario,
+.btn-secundario,
+.btn-cancelar,
+.btn-perigo {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s;
+  border: none;
+  text-align: center;
+  font-family: inherit;
+}
+
+/* Botão Laranja (Salvar/Novo) */
+button[type="submit"],
+.btn-primario {
+  background: #ff8700;
+  color: #111;
+  box-shadow: 0 0 10px #ff870055;
+}
+button[type="submit"]:hover,
+.btn-primario:hover {
+  background: #ffa13a;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #ff8700aa;
+}
+
+/* Botão Cinza (Cancelar/Voltar) */
+.btn-secundario,
+.btn-cancelar {
+  background: #333;
+  color: #ddd;
+}
+.btn-secundario:hover,
+.btn-cancelar:hover {
+  background: #444;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Botão Vermelho (Excluir) */
+.btn-perigo {
+  background: #cf1c21;
+  color: #fff;
+  box-shadow: 0 0 10px #cf1c2155;
+}
+.btn-perigo:hover {
+  background: #ff3b3b;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #cf1c21aa;
+}
+
+
+/* ── Alertas ─────────────────────────────── */
+/* ERRO */
+.alerta-erro {
+  background: #2b1010;
+  border-left: 4px solid #ff3b3b;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin-top: 20px;
+}
+
+.alerta-erro h3 {
+  color: #ff5a5a;
+  margin-top: 0;
+}
+
+/* SUCESSO */
+.alerta-sucesso {
+  background: #0f2916;
+  border-left: 4px solid #36d46f;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin-top: 20px;
+}
+
+.alerta-sucesso h3 {
+  color: #36d46f;
+  margin-top: 0;
+}
+
+/* BEM VINDO */
+.bemVindo {
+  text-align: center;
+  background: #0f2916;
+  border-left: 4px solid #36d46f;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin-top: 20px;
+}
+
+/* ── Rodapé ─────────────────────────────── */
+footer {
+  background: #000;
+  color: #777;
+  text-align: center;
+  padding: 22px;
+  margin-top: 60px;
+  font-size: 14px;
+  border-top: 2px solid #ff870044;
+}
+.formulario {
+  background: #151515;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #000;
+}
+
+.campo {
+  margin-bottom: 18px;
+}
+
+.label-campo {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #ffbb66;
+}
+
+.input-texto {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #0f0f0f;
+  color: #eee;
+  transition: 0.25s;
+  font-family: inherit;
+}
+
+.input-texto:focus {
+  border-color: #ff8700;
+  outline: none;
+  box-shadow: 0 0 10px #ff870088;
+}
+.logout-container {
+  margin-top: 24px;
+  text-align: center;
+}
+/* ── Listagem de Projetos (index.php) ──────── */
+.header-acoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.header-acoes h1 {
+  margin: 0;
+}
+
+.estado-vazio {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.estado-vazio .icone {
+  font-size: 40px;
+  margin: 0 0 12px;
+}
+
+.estado-vazio .texto {
+  font-size: 16px;
+  margin: 0 0 16px;
+  color: #aaa;
+}
+
+.grid-projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card-projeto h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #ff8700;
+}
+
+.card-projeto .descricao {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #cfcfcf;
+  line-height: 1.6;
+}
+
+.card-projeto .meta {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: #888;
+}
+
+.projeto-acoes {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.contador-projetos {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #777;
+  text-align: right;
+}
+
+/* Ajuste para remover a margem do parágrafo dentro dos alertas */
+.alerta-sucesso p {
+  margin: 0;
+}
+/* ── Catálogo de Tecnologias (03_pdo) ──────── */
+.aula-info {
+  margin-bottom: 30px;
+  border-left: 4px solid #36d46f; /* Destaque verde para diferenciar dos projetos */
+}
+
+.contador-tecnologias {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.card-header-tec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header-tec h3 {
+  margin: 0;
+}
+
+.badge-categoria {
+  background: #1a1a1a;
+  color: #ffbb66;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid #ff870044;
+  white-space: nowrap;
+}
+
+.link-detalhes {
+  color: #ff8700;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.link-detalhes:hover {
+  color: #ffa13a;
+  text-shadow: 0 0 8px #ff870088;
+  transform: translateX(4px); /* Animação setinha indo pra direita */
+}
+.foto {
+    width: 230px;/*define largura e altura fixas de 230px (forma quadrada).*/
+    height: 230px;/*define largura e altura fixas de 230px (forma quadrada).*/
+    border-radius: 60%;/*consegue arredondar a borda da imagen*/
+    object-fit: cover;/*faz a imagem preencher todo o espaço sem distorcer, cortando as partes excedentes se necessário.*/
+    display: block;/*transforma a imagem em elemento de bloco (permite usar margin auto).*/
+    margin: 0 auto 20px auto;/*centraliza horizontalmente e adiciona 20px de espaço abaixo.*/
+    border: 4px solid #000000;/*adiciona uma borda preta de 4px.*/
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);}

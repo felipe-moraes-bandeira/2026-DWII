@@ -19,7 +19,7 @@
 
 // Valores padrão: evita erro se a página esquecer de declarar
 if (!isset($pagina_atual)) $pagina_atual = "";
-if (!isset($caminho_raiz)) $caminho_raiz = "../";
+if (!isset($caminho_raiz)) $caminho_raiz = "./";
 
 /**
  * menu_class() — retorna 'class="ativo"' se o item corresponde
@@ -31,6 +31,7 @@ if (!isset($caminho_raiz)) $caminho_raiz = "../";
 function menu_class($item, $atual) {
     return ($item === $atual) ? 'class="ativo"' : '';
 }
+$logado = isset($_SESSION['usuario']);
 ?>
 
 <!-- nav usa a classe CSS definida em style.css - sem style inline  -->
@@ -58,14 +59,11 @@ function menu_class($item, $atual) {
     <?php echo menu_class("catalogo", $pagina_atual); ?>>
     🗄️Catalogo
 </a>
-<a href="<?php echo $caminho_raiz; ?>04_sessoes/login.php"
-    <?php echo menu_class("login", $pagina_atual); ?>>
-    🔐Login
-</a>
 <a href="<?php echo $caminho_raiz; ?>04_sessoes/painel.php"
     <?php echo menu_class("painel", $pagina_atual); ?>>
     📊painel
 </a>
+<a href="<php echo $caminho_raiz; ?> logout.php"
 
 
 <a href="<?php echo $caminho_raiz; ?>05_crud/cadastrar.php"
