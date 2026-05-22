@@ -421,3 +421,53 @@ footer {
   transform: scale(1.05);
   box-shadow: 0 0 35px #ff8700aa;
 }
+/* ── Painel Admin (admin.php) ────────────── */
+.form-filtro {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tabela-admin {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #151515;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 15px #000;
+}
+
+.tabela-admin th,
+.tabela-admin td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #333;
+}
+
+.tabela-admin th {
+  background: #0f0f0f;
+  color: #ffbb66;
+  font-weight: bold;
+  text-align: left;
+}
+
+.tabela-admin th.centro,
+.tabela-admin td.centro {
+  text-align: center;
+}
+
+.tabela-admin tbody tr:hover {
+  background: #1a1a1a;
+}
+
+.texto-vazio {
+  color: #888;
+  padding: 20px 0;
+  font-style: italic;
+}
+
+.acoes-tabela {
+  display: flex;
+  gap: 8px;
+}

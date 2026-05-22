@@ -1,8 +1,8 @@
 <?php
 /**
- * Disciplinha : Desenvolvimento WEB II (DWII)
- * Arquivo : includes/auth.php
- * Descrição : Helpers de autenticação - verefica login e protege paginas. 
+ * Disciplina : Desenvolvimento WEB II (DWII)
+ * Arquivo    : includes/auth.php
+ * Descrição  : Helpers de autenticação.
  */
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -10,19 +10,19 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 function usuario_logado(): bool
-
 {
-    return isset($_SESSION['usuario']) && $_SESSION['usuario'] == '';
+    return !empty($_SESSION['usuario']);
 }
 
-function usuario_atual(): ?string 
+function usuario_atual(): ?string
 {
     return $_SESSION['usuario'] ?? null;
 }
+
 function requer_login(): void
 {
     if (!usuario_logado()) {
-        header('location: login.php');
+        header('Location: login.php');
         exit;
     }
 }
