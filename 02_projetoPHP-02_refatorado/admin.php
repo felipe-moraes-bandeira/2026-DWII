@@ -10,7 +10,7 @@
  * ======================================================================
  */
 
-// ✅ Correção: adicionada a barra "/" antes de includes
+
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/conexao.php';
 requer_login();
@@ -21,7 +21,7 @@ $em_edicao = null;
 
 function registrar_log(PDO $pdo, string $acao, int $registro_id, string $detalhes): void
 {
-    // ✅ Correção: de "detahes" para "detalhes"
+   
     $stmt = $pdo->prepare(
         "INSERT INTO logs (tabela_afetada, registro_id, acao, usuario_login, detalhes)
         VALUES ('projetos', :id, :acao, :usuario, :detalhes)"
@@ -72,20 +72,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 registrar_log($pdo, "UPDATE", $id, "Projeto editado: $nome");
 
-            } else {
-                // ✅ Correção: O WHERE id = :id foi removido daqui!
-                $stmt = $pdo->prepare(
-                    "INSERT INTO projetos (nome, descricao, tecnologias, link_github, ano, status)
-                     VALUES (:nome, :descricao, :tecnologias, :link, :ano, :status)"
+ } else {
+                
+        $stmt = $pdo->prepare(
+            "INSERT INTO projetos (nome, descricao, tecnologias, link_github, ano, status)
+          VALUES (:nome, :descricao, :tecnologias, :link, :ano, :status)"
                 );
 
-                $stmt->execute([
-                    ':nome'        => $nome, 
-                    ':descricao'   => $descricao,
-                    ':tecnologias' => $tecnologias, 
-                    ':link'        => $link,
-                    ':ano'         => $ano, 
-                    ':status'      => $status, 
+      $stmt->execute([
+            ':nome'        => $nome, 
+            ':descricao'   => $descricao,
+            ':tecnologias' => $tecnologias, 
+            ':link'        => $link,
+            ':ano'         => $ano, 
+            ':status'      => $status, 
                 ]);
                 
                 $id = (int) $pdo->lastInsertId();
@@ -124,23 +124,39 @@ if ($em_edicao === null && isset($_GET['editar'])) {
     $em_edicao = $stmt->fetch() ?: null;
 }
 
-$filtros_validos = ['todos', 'rascunho', 'publicado', 'arquivo'];
+$filtros_validos = ['todos', 'rascunho', 'publicado', 'arquivado'];
 $filtro = $_GET['filtro'] ?? 'todos';
+
+$busca  = trim($_GET['busca'] ?? '');
 
 if (!in_array($filtro, $filtros_validos, true)) {
     $filtro = 'todos';
 }
 
-if ($filtro === 'todos') {
-    $projetos = $pdo->query("SELECT * FROM projetos ORDER BY criado_em DESC")->fetchAll();
-} else {
-    // ✅ Correção: De ORDEM BY para ORDER BY
-    $stmt = $pdo->prepare("SELECT * FROM projetos WHERE status = :s ORDER BY criado_em DESC");
-    $stmt->execute([':s' => $filtro]);
-    $projetos = $stmt->fetchAll();
+
+$sql = "SELECT * FROM projetos WHERE 1=1";
+$params = [];
+
+
+if ($filtro !== 'todos') {
+    $sql .= " AND status = :status";
+    $params[':status'] = $filtro;
 }
 
-// ✅ Correção: De paginal_atual para pagina_atual
+
+if ($busca !== '') {
+    $sql .= " AND nome LIKE :busca";
+   
+    $params[':busca'] = '%' . $busca . '%';
+}
+
+
+$sql .= " ORDER BY criado_em DESC";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$projetos = $stmt->fetchAll();
+
 $pagina_atual = 'painel';
 $titulo_pagina = 'Painel Admin - Portfólio';
 $caminho_raiz = './';
@@ -223,14 +239,30 @@ $caminho_raiz = './';
         <h2 class="titulo-secao" style="margin-top: 40px;">📂 Projetos cadastrados</h2>
 
         <form action="admin.php" method="get" class="form-filtro">
-            <label class="label-campo" style="margin: 0;">Filtrar por status:</label>
-            <select name="filtro" class="input-texto" style="width: auto;" onchange="this.form.submit()">
+            <input 
+                type="text" 
+                name="busca" 
+                class="input-texto" 
+                placeholder="Buscar por nome..." 
+                value="<?php echo htmlspecialchars($busca); ?>"
+                style="flex-grow: 1; max-width: 300px;"
+            >
+
+            <select name="filtro" class="input-texto" style="width: auto;">
                 <?php foreach ($filtros_validos as $op): ?>
                     <option value="<?php echo $op; ?>" <?php echo $op === $filtro ? 'selected' : ''; ?>>
                         <?php echo ucfirst($op); ?>
                     </option>
                 <?php endforeach; ?>
             </select>
+            
+            <button type="submit" class="btn-primario" style="padding: 10px 16px;">
+                🔍 Buscar
+            </button>
+            
+            <?php if ($busca !== '' || $filtro !== 'todos'): ?>
+                <a href="admin.php" class="btn-secundario" style="padding: 10px 16px;">Limpar</a>
+            <?php endif; ?>
         </form>
 
         <?php if (empty($projetos)): ?>
@@ -250,7 +282,15 @@ $caminho_raiz = './';
                         <tr>
                             <td><?php echo htmlspecialchars($p['nome']); ?></td>
                             <td class="centro"><?php echo (int) $p['ano']; ?></td>
-                            <td class="centro"><?php echo ucfirst($p['status']); ?></td>
+                            <td class="centro">
+    <?php 
+        
+        $classe_badge = 'status-' . strtolower($p['status']); 
+    ?>
+    <span class="badge-status <?php echo $classe_badge; ?>">
+        <?php echo ucfirst($p['status']); ?>
+    </span>
+</td>
                             <td>
                                 <div class="acoes-tabela">
                                     <a href="admin.php?editar=<?php echo (int) $p['id']; ?>" class="btn-secundario" style="padding: 6px 12px; font-size: 13px;">✏️ Editar</a>

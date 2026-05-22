@@ -24,9 +24,10 @@ $caminho_raiz = './';
         <h1 class="titulo-secao">Painel</h1>
         <p>Ola, <strong><?php echo htmlspecialchars(usuario_atual()); ?></strong>!
             Voce esta em uma area restrita.</p>
-        <p>
-            <a href="admin.php" class="btn-primario">Gerenciar projetos</a>
-        </p>
+        <div style="display: flex; gap: 12px; margin-top: 20px;">
+            <a href="admin.php" class="btn-primario">⚙️ Gerenciar projetos</a>
+            <a href="logs.php" class="btn-secundario">📋 Ver Auditoria</a>
+        </div>
     </div>
 </main>
 <?php require_once __DIR__ . '/includes/rodape.php'; ?>

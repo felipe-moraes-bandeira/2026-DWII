@@ -18,6 +18,7 @@ O objetivo é praticar conceitos fundamentais de desenvolvimento web, com foco e
 - Sistema de autenticação com sessões
 - Operações CRUD (Create, Read, Update, Delete)
 - Organização e refatoração de código
+- CSS para a partee grafica do site
 
 ---
 
@@ -32,22 +33,32 @@ O objetivo é praticar conceitos fundamentais de desenvolvimento web, com foco e
 ├── 01_projetoPHP-01/
 │
 ├── 02_projetoPHP-02_refatorado/
-│   ├── 00_apresentacao/
-│   ├── 01_php-intro/
-│   ├── 02_formularios/
-│   ├── 03_pdo/
-│   ├── 04_sessoes/
-│   ├── 05_crud/
-│   │
-│   ├── includes/
-│   │   ├── cabecalho.php
-│   │   ├── nav.php
-│   │   ├── rodape.php
-│   │   └── style.css
-│   │
-│   └── index.php
-│
-└── README.md
+├── includes/
+│   ├── imgs/
+|   |    ├── felipe.jpg   
+│   ├── auth.php
+│   ├── cabecalho.php
+│   ├── conexao.php
+│   ├── nav.php
+│   ├── projetos.css
+│   ├── rodape.php
+│   └── style.css
+├── sql/
+|   ├── setup.sql
+├── 
+├── admin.php
+├── catalogo.php
+├── contato.php
+├── detalhe.php
+├── gera_hash.php
+├── index.php
+├── login.php
+├── logout.php
+└── obrigado.php
+├── painel.php
+├── projetos.php
+├── README.md
+└── sobre.php
 
 ---
 
@@ -55,19 +66,23 @@ O objetivo é praticar conceitos fundamentais de desenvolvimento web, com foco e
 
 ## 🌐 Páginas Publicadas
 
-- 📄 [Página de Apresentação](WORKSPACE/02_projetoPHP-02_refatorado/00_apresentacao/index.html)
+- 📄 [Página de Apresentação](WORKSPACE/02_projetoPHP-02_refatorado/index.html)
 
 ---
 
 ## 🔗 Como visualizar
 
 1. Clone o repositório: `git clone https://github.com/felipe-moraes-bandeira/2026-DWII`
-2. Acesse a pasta `WORKSPACE/02_projetoPHP-02_refatorado/00_apresentacao/`
+2. Acesse a pasta `WORKSPACE/02_projetoPHP-02_refatorado/`
 3. Abra o arquivo `index.html` no navegador
 
 ---
 
 ## Como executar
 php -S localhost:8000
+
+
+## Como acessar a area restrica com o usuario
+na parte de login deve ser logada usando o usuario 'admin' com a senha dwii2026
 
 *Disciplina ministrada pelo Prof. Dr. João Henrique Berssanette — joao.berssanette@ifpr.edu.br*

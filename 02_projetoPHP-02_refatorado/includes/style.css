@@ -471,3 +471,58 @@ footer {
   display: flex;
   gap: 8px;
 }
+.badge-status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Cores específicas para cada status */
+.status-publicado {
+  background: #1b4332;
+  color: #4ad66d;
+  border: 1px solid #4ad66d;
+}
+
+.status-rascunho {
+  background: #5c3a00;
+  color: #ffbc42;
+  border: 1px solid #ffbc42;
+}
+
+.status-arquivado {
+  background: #3b3b3b;
+  color: #a1a1a1;
+  border: 1px solid #a1a1a1;
+}
+/* ── Badges de Ações (logs.php) ──────────── */
+.badge-acao {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.acao-insert {
+  background: #1b4332;
+  color: #4ad66d;
+}
+
+.acao-update {
+  background: #002b5e;
+  color: #4da8da;
+}
+
+.acao-status {
+  background: #5c1a1b;
+  color: #ff6b6b;
+}
+
+.tabela-logs td {
+  font-size: 14px;
+}
