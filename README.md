@@ -18,7 +18,8 @@ O objetivo é praticar conceitos fundamentais de desenvolvimento web, com foco e
 - Sistema de autenticação com sessões
 - Operações CRUD (Create, Read, Update, Delete)
 - Organização e refatoração de código
-- CSS para a partee grafica do site
+- CSS para a parte grafica do site
+- uso de SQL com o banco
 
 ---
 
